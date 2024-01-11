@@ -16,6 +16,22 @@
         <button class="btn" id="add-btn">+ Add book</button>
       </div>
     </header>
+    <dialog id="dialog">
+      <form method="dialog" class="add-form">
+        <div class="form-row">
+          <label for="title">TITLE</label>
+          <input type="text" name="title" id="title" required />
+        </div>
+        <div class="form-row">
+          <label for="author">AUTHOR</label>
+          <input type="text" name="author" id="author" required />
+        </div>
+        <div class="form-row">
+          <label for="numOfPages">NUMBER OF PAGES</label>
+          <input type="number" name="numOfPages" id="numOfPages" required />
+        </div>
+      </form>
+    </dialog>
     <main class="main">
       <div class="grid-container"></div>
     </main>
