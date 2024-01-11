@@ -4,7 +4,7 @@
   --primary-white: #f8fafc;
   --primary-gray: #94a3b8;
   --border-radius: 5px;
-  --btn-padding: 5px 10px;
+  --btn-padding: 12px;
 }
 
 *,
@@ -125,6 +125,7 @@ input {
 
 /* book card */
 .book-container {
+  background-color: var(--primary-white);
   display: flex;
   flex-direction: column;
   justify-content: center;
