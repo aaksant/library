@@ -4,7 +4,7 @@
   --primary-white: #f8fafc;
   --primary-gray: #94a3b8;
   --border-radius: 5px;
-  --btn-padding: 5px 10px
+  --btn-padding: 5px 10px;
 }
 
 *,
@@ -49,17 +49,19 @@ a {
   font-weight: 500;
   border: none;
   padding: var(--btn-padding);
-  transition: .1s ease-in-out;
+  transition: 0.1s ease-in-out;
   cursor: pointer;
+  outline: none;
 }
 
 .btn:hover {
-  filter: brightness(85%);
+  filter: brightness(95%);
 }
 
 #add-btn {
-  background-color: #475569;
-  color: var(--primary-white);
+  color: var(--primary-black);
+  background-color: var(--primary-white);
+  font-weight: bold;
 }
 
 .grid-container {
@@ -79,12 +81,52 @@ a {
   border-top: 1px solid var(--primary-black);
 }
 
-.footer-links p,
-.footer-links a {
+footer,
+footer a {
   color: var(--primary-gray);
 }
 
 .footer-links a:hover {
   color: var(--primary-black);
   text-decoration: underline;
+}
+
+dialog {
+  border-radius: var(--border-radius);
+  border: none;
+}
+
+.add-form {
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+label {
+  color: var(--primary-black);
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+input {
+  padding: 1em;
+  border-radius: 8px;
+  border: 1px solid var(--primary-gray);
+}
+
+/* book card */
+.book-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
