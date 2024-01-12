@@ -96,7 +96,7 @@ dialog {
   border: none;
 }
 
-.add-form {
+#add-form {
   padding: 15px;
   border-radius: 8px;
   display: flex;
