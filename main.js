@@ -12,7 +12,7 @@ function addBook() {
   if (!isAlreadyExist(newBook)) {
     books.push(newBook);
     clearInput();
-    createBookContainer(newBook);
+    displayBook(newBook);
   }
 }
 
@@ -34,7 +34,7 @@ function clearInput() {
   numOfPagesInput.value = '';
 }
 
-function createBookContainer(book) {
+function displayBook(book) {
   const gridContainer = document.querySelector('.grid-container');
   const bookContainer = document.createElement('div');
 
@@ -48,27 +48,33 @@ function createBookContainer(book) {
   </div>
   <div class="book-control">
     <button class="btn status" id="book-status">Done read</button>
-    <button class="btn remove" id="remove-book">Remove</button>
+    <button class="btn remove" id="remove-book" onclick="removeBook()">Remove</button>
   </div>
   `;
 
   gridContainer.appendChild(bookContainer);
 }
 
-// Inputs
+function changeStatus() {
+  
+}
+
+function removeBook() {
+  const gridContainer = document.querySelector('.grid-container');
+  const lastEntry = gridContainer.lastChild;
+
+  gridContainer.removeChild(lastEntry);
+}
+
 let titleInput = document.getElementById('title');
 let authorInput = document.getElementById('author');
 let numOfPagesInput = document.getElementById('numOfPages');
 
-// Buttons
 const addButton = document.getElementById('add-btn');
 const addForm = document.getElementById('add-form');
-const confirmAdd = document.getElementById('confirm-add');
 
-// Dialog
 const dialog = document.getElementById('dialog');
 
-// Add book button
 addButton.addEventListener('click', () => dialog.showModal());
 
 document.addEventListener('click', (e) => {
@@ -85,5 +91,4 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-// Confirm add
 addForm.onsubmit = addBook;
