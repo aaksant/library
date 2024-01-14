@@ -12,6 +12,7 @@ function addBook() {
   if (!isAlreadyExist(newBook)) {
     books.push(newBook);
     clearInput();
+    createBookContainer(newBook);
   }
 }
 
@@ -31,6 +32,27 @@ function clearInput() {
   titleInput.value = '';
   authorInput.value = '';
   numOfPagesInput.value = '';
+}
+
+function createBookContainer(book) {
+  const gridContainer = document.querySelector('.grid-container');
+  const bookContainer = document.createElement('div');
+
+  bookContainer.classList.add('book-container');
+  
+  bookContainer.innerHTML = `
+  <div class="book-id">
+    <p class="book-title">${book.title}</p>
+    <p class="book-author">by ${book.author}</p>
+    <p class="book-pages">${book.numOfPages} pages</p>
+  </div>
+  <div class="book-control">
+    <button class="btn status" id="book-status">Done read</button>
+    <button class="btn remove" id="remove-book">Remove</button>
+  </div>
+  `;
+
+  gridContainer.appendChild(bookContainer);
 }
 
 // Inputs
