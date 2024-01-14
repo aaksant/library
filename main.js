@@ -13,6 +13,9 @@ function addBook() {
     books.push(newBook);
     clearInput();
     displayBook(newBook);
+  } else {
+    clearInput();
+    alert('Book already exists.');
   }
 }
 
@@ -47,8 +50,8 @@ function displayBook(book) {
     <p class="book-pages">${book.numOfPages} pages</p>
   </div>
   <div class="book-control">
-    <button class="btn status" id="book-status">Done read</button>
-    <button class="btn remove" id="remove-book" onclick="removeBook()">Remove</button>
+    <button class="btn" id="book-status">On progress</button>
+    <button class="btn" id="remove-book" onclick="removeBook()">Remove</button>
   </div>
   `;
 
@@ -56,7 +59,7 @@ function displayBook(book) {
 }
 
 function changeStatus() {
-  
+
 }
 
 function removeBook() {
