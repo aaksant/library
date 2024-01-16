@@ -50,31 +50,17 @@ function displayBook(book) {
     <p class="book-pages">${book.numOfPages} pages</p>
   </div>
   <div class="book-control">
-    <button class="btn" id="book-status" onclick="changeStatus()">On progress</button>
-    <button class="btn" id="remove-book" onclick="removeBook()">Remove</button>
+    <button class="btn" id="book-status">On progress</button>
+    <button class="btn" id="remove-book" onclick="removeBook(this.parentNode.parentNode)">Remove</button>
   </div>
   `;
 
   gridContainer.appendChild(bookContainer);
 }
 
-function changeStatus() {
-  const statusBtn = document.getElementById('book-status');
-
-  if (statusBtn.textContent === 'On progress') {
-    statusBtn.textContent = 'Complete';
-    statusBtn.style.backgroundColor = '#9fff9c';
-  } else {
-    statusBtn.textContent = 'On progress';
-    statusBtn.style.backgroundColor = '#ff9c9c';
-  }
-}
-
-function removeBook() {
+function removeBook(bookContainer) {
   const gridContainer = document.querySelector('.grid-container');
-  const lastEntry = gridContainer.lastChild;
-
-  gridContainer.removeChild(lastEntry);
+  gridContainer.removeChild(bookContainer);
 }
 
 let titleInput = document.getElementById('title');
