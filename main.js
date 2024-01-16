@@ -50,12 +50,24 @@ function displayBook(book) {
     <p class="book-pages">${book.numOfPages} pages</p>
   </div>
   <div class="book-control">
-    <button class="btn" id="book-status">On progress</button>
+    <button class="btn" id="book-status" onclick="changeStatus(this)">On progress</button>
     <button class="btn" id="remove-book" onclick="removeBook(this.parentNode.parentNode)">Remove</button>
   </div>
   `;
 
   gridContainer.appendChild(bookContainer);
+}
+
+function changeStatus(statusBtn) {
+  const bookStatus = statusBtn; // The button itself
+
+  if (bookStatus.textContent === 'On progress') {
+    bookStatus.textContent = 'Completed';
+    bookStatus.style.backgroundColor = '#9fff9c';
+  } else {
+    bookStatus.textContent = 'On progress';
+    bookStatus.style.backgroundColor = '#ff9c9c';
+  }
 }
 
 function removeBook(bookContainer) {
