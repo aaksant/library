@@ -15,6 +15,7 @@ function addBook() {
     displayBook(newBook);
   } else {
     clearInput();
+    books.slice(0, -1);
     alert('Book already exists.');
   }
 }
@@ -58,15 +59,13 @@ function displayBook(book) {
   gridContainer.appendChild(bookContainer);
 }
 
-function changeStatus(statusBtn) {
-  const bookStatus = statusBtn; // The button itself
-
-  if (bookStatus.textContent === 'On progress') {
-    bookStatus.textContent = 'Completed';
-    bookStatus.style.backgroundColor = '#9fff9c';
+function changeStatus(currentStatus) {
+  if (currentStatus.textContent === 'On progress') {
+    currentStatus.textContent = 'Completed';
+    currentStatus.style.backgroundColor = '#9fff9c';
   } else {
-    bookStatus.textContent = 'On progress';
-    bookStatus.style.backgroundColor = '#ff9c9c';
+    currentStatus.textContent = 'On progress';
+    currentStatus.style.backgroundColor = '#ff9c9c';
   }
 }
 
