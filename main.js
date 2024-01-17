@@ -29,13 +29,7 @@ function getBookData() {
   const author = authorInput.value;
   const numOfPages = numOfPagesInput.value;
 
-  return new Book(title, author, numOfPages);
-}
-
-function clearInput() {
-  titleInput.value = '';
-  authorInput.value = '';
-  numOfPagesInput.value = '';
+  return new Book(toTitleCase(title), toTitleCase(author), numOfPages);
 }
 
 function displayBook(book) {
@@ -72,6 +66,20 @@ function changeStatus(currentStatus) {
 function removeBook(bookContainer) {
   const gridContainer = document.querySelector('.grid-container');
   gridContainer.removeChild(bookContainer);
+}
+
+function clearInput() {
+  titleInput.value = '';
+  authorInput.value = '';
+  numOfPagesInput.value = '';
+}
+
+function toTitleCase(str) {
+  let lower = str.toLowerCase();
+  return lower
+    .split(' ')
+    .map((word) => word[0].toUpperCase() + word.substring(1))
+    .join(' ');
 }
 
 let titleInput = document.getElementById('title');
