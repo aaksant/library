@@ -10,12 +10,11 @@ function addBook() {
   const newBook = getBookData();
 
   if (!isAlreadyExist(newBook)) {
-    books.push(newBook);
     clearInput();
+    books.push(newBook);
     displayBook(newBook);
   } else {
     clearInput();
-    books.slice(0, -1);
     alert('Book already exists.');
   }
 }
@@ -65,7 +64,10 @@ function changeStatus(currentStatus) {
 
 function removeBook(bookContainer) {
   const gridContainer = document.querySelector('.grid-container');
+  const bookIndex = Array.from(gridContainer.childNodes).indexOf(bookContainer);
+
   gridContainer.removeChild(bookContainer);
+  books.splice(bookIndex, 1);
 }
 
 function clearInput() {
