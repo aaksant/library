@@ -78,7 +78,15 @@ function toTitleCase(str) {
   let lower = str.toLowerCase();
   return lower
     .split(' ')
-    .map((word) => word[0].toUpperCase() + word.substring(1))
+    .map((word) => {
+      if (word.includes("'")) {
+        return word
+          .split("'")
+          .map((part) => part[0].toUpperCase() + part.substring(1))
+          .join("'");
+      }
+      return word[0].toUpperCase() + word.substring(1);
+    })
     .join(' ');
 }
 
