@@ -115,9 +115,14 @@ dialog {
 }
 
 label {
-  color: var(--primary-black);
   font-size: 10px;
   letter-spacing: 3px;
+}
+
+label[for="initialStatus"] {
+  text-align: center;
+  letter-spacing: normal;
+  font-size: 16px;
 }
 
 input {
