@@ -1,9 +1,10 @@
 let books = [];
 
-function Book(title, author, numOfPages) {
+function Book(title, author, numOfPages, initialStatus) {
   this.title = title;
   this.author = author;
   this.numOfPages = numOfPages;
+  this.initialStatus = initialStatus;
 }
 
 function addBook() {
@@ -27,8 +28,14 @@ function getBookData() {
   const title = titleInput.value;
   const author = authorInput.value;
   const numOfPages = numOfPagesInput.value;
+  const initialStatus = checkbox.checked;
 
-  return new Book(toTitleCase(title), toTitleCase(author), numOfPages);
+  return new Book(
+    toTitleCase(title),
+    toTitleCase(author),
+    numOfPages,
+    setInitialStatus(initialStatus)
+  );
 }
 
 function displayBook(book) {
@@ -44,12 +51,17 @@ function displayBook(book) {
     <p class="book-pages">${book.numOfPages} pages</p>
   </div>
   <div class="book-control">
-    <button class="btn" id="book-status" onclick="changeStatus(this)">On progress</button>
+    <button class="btn" id="book-status" onclick="changeStatus(this)">${book.initialStatus}</button>
     <button class="btn" id="remove-book" onclick="removeBook(this.parentNode.parentNode)">Remove</button>
   </div>
   `;
 
   gridContainer.appendChild(bookContainer);
+}
+
+function setInitialStatus(cond) {
+  if (cond === true) return 'Completed';
+  return 'On progress';
 }
 
 function changeStatus(currentStatus) {
@@ -74,6 +86,7 @@ function clearInput() {
   titleInput.value = '';
   authorInput.value = '';
   numOfPagesInput.value = '';
+  checkbox.checked = false;
 }
 
 function toTitleCase(str) {
@@ -95,6 +108,7 @@ function toTitleCase(str) {
 let titleInput = document.getElementById('title');
 let authorInput = document.getElementById('author');
 let numOfPagesInput = document.getElementById('numOfPages');
+let checkbox = document.getElementById('initialStatus');
 
 const addButton = document.getElementById('add-btn');
 const addForm = document.getElementById('add-form');
