@@ -44,20 +44,23 @@ function displayBook(book) {
 
   bookContainer.classList.add('book-container');
 
+  const initialStatusColor = book.initialStatus === 'Completed' ? '#9fff9c' : '#ff9c9c';
+
   bookContainer.innerHTML = `
-  <div class="book-id">
-    <p class="book-title">${book.title}</p>
-    <p class="book-author">by ${book.author}</p>
-    <p class="book-pages">${book.numOfPages} pages</p>
-  </div>
-  <div class="book-control">
-    <button class="btn" id="book-status" onclick="changeStatus(this)">${book.initialStatus}</button>
-    <button class="btn" id="remove-book" onclick="removeBook(this.parentNode.parentNode)">Remove</button>
-  </div>
+    <div class="book-id">
+      <p class="book-title">${book.title}</p>
+      <p class="book-author">by ${book.author}</p>
+      <p class="book-pages">${book.numOfPages} pages</p>
+    </div>
+    <div class="book-control">
+      <button class="btn" id="book-status" onclick="changeStatus(this)" style="background-color: ${initialStatusColor};">${book.initialStatus}</button>
+      <button class="btn" id="remove-book" onclick="removeBook(this.parentNode.parentNode)">Remove</button>
+    </div>
   `;
 
   gridContainer.appendChild(bookContainer);
 }
+
 
 function setInitialStatus(cond) {
   if (cond === true) return 'Completed';
