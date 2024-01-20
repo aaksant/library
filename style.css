@@ -131,7 +131,6 @@ input {
   border: 1px solid var(--primary-gray);
 }
 
-/* book card */
 .book-container {
   display: flex;
   flex-direction: column;
@@ -155,8 +154,4 @@ input {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-#book-status {
-  background-color: var(--light-red);
 }
