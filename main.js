@@ -1,10 +1,12 @@
 let books = [];
 
-function Book(title, author, numOfPages, initialStatus) {
-  this.title = title;
-  this.author = author;
-  this.numOfPages = numOfPages;
-  this.initialStatus = initialStatus;
+class Book {
+  constructor(title, author, numOfPages, initialStatus) {
+    this.title = title;
+    this.author = author;
+    this.numOfPages = numOfPages;
+    this.initialStatus = initialStatus;
+  }
 }
 
 function addBook() {
